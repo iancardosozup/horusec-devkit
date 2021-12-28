@@ -14,6 +14,7 @@
 
 package account
 
+//Role is the role applicable to an account
 type Role string
 
 const (
@@ -23,6 +24,7 @@ const (
 	Supervisor       Role = "supervisor"
 )
 
+//IsValid checks if a given Role is in possible Values slice
 func (r Role) IsValid() bool {
 	for _, v := range r.Values() {
 		if v == r {
@@ -33,6 +35,7 @@ func (r Role) IsValid() bool {
 	return false
 }
 
+//Values returns a slice of possible Role values
 func (r Role) Values() []Role {
 	return []Role{
 		ApplicationAdmin,
